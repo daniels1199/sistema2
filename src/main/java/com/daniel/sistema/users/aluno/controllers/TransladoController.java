@@ -30,10 +30,16 @@ public class TransladoController {
     }
 
     @GetMapping("aluno/solicita_traslado")
-    public String solicitaTranslado(Model model){
+    public String solicitaTranslado(@ModelAttribute("translado") Translado translado, Model model){
         model.addAttribute("listaVeiculos", repoV.findAll());
         model.addAttribute("listaDestinos", repoD.findAll());
         return "aluno/solicita_traslado";
+    }
+
+    @PostMapping("aluno/solicita_traslado/salvar")
+    public String salvarTranslado(@ModelAttribute("translado") Translado translado){      
+       repoT.save(translado);
+       return "redirect:/aluno";
     }
     
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,26 +10,26 @@
   </head>
   <body>
      <div class="container">
-      <form class="form-signin" method="post" th:action="@{/aluno/solicita_translado/salvar}" th:object="${translado}">
+      <form class="form-signin" method="post" action="#" th:action="@{/aluno/solicita_traslado/salvar}" th:object="${translado}">
         <h2 class="form-signin-heading">Solicitar Translado</h2>
         <input type="hidden" id="id" th:field="*{id}">
         <p>
             <label>Data escolhida</label>
-            <input type="date" th:field="*{data_escolhida}" class="form-control" placeholder="Data escolhida" required autofocus>
+            <input type="date" class="form-control" placeholder="Data escolhida" th:field="*{data_escolhida}" required autofocus/>
         </p>
         <p>
-            <label>Turno escolhido</label><br>
-            <select class="form-control form-select-lg selectpicker" id="turno" required>
+          <label>Turno escolhido</label><br>
+            <select class="form-control form-select-lg selectpicker" id="turno" th:field="*{turno_escolhido}" required>
                 <option value="">Selecione uma opção</option>
                 <option th:each="turno : ${T(com.daniel.sistema.models.Turno).values()}"
                       th:value="${turno}"
                       th:text="${turno}">
                 </option>
-            </select>
+          </select>
         </p>
         <p>
           <label>Destino escolhido</label><br>
-          <select class="form-control form-select-lg selectpicker" id="destino" required>
+          <select class="form-control form-select-lg selectpicker" id="destino_escolhido" th:field="*{destino_escolhido}" required>
               <option value="">Selecione uma opção</option>
               <option th:each="destino : ${listaDestinos}"
                     th:value="${destino.nome_destino}"
@@ -39,7 +39,7 @@
         </p>
         <p>
           <label>Veiculo</label><br>
-          <select class="form-control form-select-lg selectpicker" id="veiculo" required>
+          <select class="form-control form-select-lg selectpicker" id="veiculo" th:field="*{veiculo}" required>
               <option value="">Selecione uma opção</option>
               <option th:each="veiculo : ${listaVeiculos}"
                     th:value="${veiculo.descricao}"
