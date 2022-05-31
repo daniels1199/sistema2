@@ -1,0 +1,35 @@
+package com.daniel.sistema.models;
+
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "tb_translado")
+public class Translado {
+  
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate data_escolhida; 
+    
+    private String turno_escolhido;
+   
+    private String destino_escolhido;
+    private String veiculo;
+}

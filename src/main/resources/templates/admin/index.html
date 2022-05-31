@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Área do Administrador</title>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+        <style type="text/css">
+            
+            body{
+                background-color: #000;
+            }
+
+            .btn{
+                border-radius: 100px;
+                width:200px;
+                height: 200px;
+                margin:10px;
+                margin-top:30px;   
+                padding: 0;          
+            }
+
+            p{
+                padding-top: 70px;
+                font-size: 20pt;
+             }
+             .sair{
+                 color: #fff;
+             }
+        </style>  
+    </head>  
+    <body>  
+        <h1 style="padding-top: 40px;text-align:center; color:#fff;">Página do administrador</h1>
+            <div style="text-align: center">
+                <a class="sair" th:href="@{/login}">Sair da página</a><br>
+                <a href="#" th:href="@{/admin/usuarios}" class="btn btn-primary"><p>Usuários</p></a>
+                <a href="#" th:href="@{/admin/veiculos}" class="btn btn-primary"><p>Veículos</p></a>
+                <a href="#" th:href="@{/admin/destinos}" class="btn btn-primary"><p>Destinos</p></a>
+                <a href="#" class="btn btn-primary"><p>Traslados</p></a>
+            </div>
+    </body>
+</html>
