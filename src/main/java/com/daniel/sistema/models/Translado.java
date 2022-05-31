@@ -1,11 +1,14 @@
 package com.daniel.sistema.models;
 
 import java.time.LocalDate;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -25,7 +28,8 @@ public class Translado {
     private LocalDate data_escolhida; 
     
     private String turno_escolhido;
-   
+
     private String destino_escolhido;
+
     private String veiculo;
 }

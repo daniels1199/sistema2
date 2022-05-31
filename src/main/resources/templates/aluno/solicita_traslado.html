@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Please sign in</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/4.0/examples/signin/signin.css" rel="stylesheet" crossorigin="anonymous"/>
+  </head>
+  <body>
+     <div class="container">
+      <form class="form-signin" method="post" th:action="@{/aluno/solicita_translado/salvar}" th:object="${translado}">
+        <h2 class="form-signin-heading">Solicitar Translado</h2>
+        <input type="hidden" id="id" th:field="*{id}">
+        <p>
+            <label>Data escolhida</label>
+            <input type="date" th:field="*{data_escolhida}" class="form-control" placeholder="Data escolhida" required autofocus>
+        </p>
+        <p>
+            <label>Turno escolhido</label><br>
+            <select class="form-control form-select-lg selectpicker" id="turno" required>
+                <option value="">Selecione uma opção</option>
+                <option th:each="turno : ${T(com.daniel.sistema.models.Turno).values()}"
+                      th:value="${turno}"
+                      th:text="${turno}">
+                </option>
+            </select>
+        </p>
+        <p>
+          <label>Destino escolhido</label><br>
+          <select class="form-control form-select-lg selectpicker" id="destino" required>
+              <option value="">Selecione uma opção</option>
+              <option th:each="destino : ${listaDestinos}"
+                    th:value="${destino.nome_destino}"
+                    th:text="${destino.nome_destino}">
+              </option>
+          </select>
+        </p>
+        <p>
+          <label>Veiculo</label><br>
+          <select class="form-control form-select-lg selectpicker" id="veiculo" required>
+              <option value="">Selecione uma opção</option>
+              <option th:each="veiculo : ${listaVeiculos}"
+                    th:value="${veiculo.descricao}"
+                    th:text="${veiculo.descricao}">
+              </option>
+          </select>
+        </p>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
+        <br><a th:href="@{/}">Voltar</a> 
+      </form>
+    </div>
+  </body>
+</html>

@@ -23,7 +23,7 @@
           <input type="password" th:field="*{password}" class="form-control" placeholder="Password" required>
         </p>
         <p>  
-          <select class="form-select form-select-lg selectpicker" th:field="*{tipoUsuario}" id="tipoUsuario">
+          <select class="form-select form-select-lg selectpicker" th:field="*{tipoUsuario}" id="tipoUsuario" required>
             <option value="">Selecione uma opção</option>
             <option th:each="tipo : ${T(com.daniel.sistema.models.TipoUsuario).values()}"
                   th:value="${tipo}"
@@ -32,7 +32,8 @@
           </select>
         </p>
         <button class="btn btn-lg btn-primary btn-block" type="submit">Salvar</button>
-      </form>
-    </div>
+        <br><a th:href="@{/admin/usuarios}">Voltar</a>        
+      </form>      
+    </div>    
   </body>
 </html>
